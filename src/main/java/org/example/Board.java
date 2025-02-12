@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Board {
     String id;
-    private static int size = 10;
-    private static int[] shotCells = new int[(size*size)];
+    private static final int BOARDSIZE = 10;
+    private static int[] shotCells = new int[(BOARDSIZE * BOARDSIZE)];
     private static int shotCellsCounter = 0;
     private static int[] shipCoordinates = new int[10];
 
@@ -15,7 +15,7 @@ public class Board {
     }
 
     public int getSize() {
-        return size;
+        return BOARDSIZE;
     }
 
     public Board (String id) {
@@ -24,16 +24,16 @@ public class Board {
 
     public void boardDisplayer (){
         System.out.print("  ");
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < BOARDSIZE; i++) {
             System.out.print(i + " ");
         }
         System.out.println();
-        for (int row = 0; row < size; row++) {
+        for (int row = 0; row < BOARDSIZE; row++) {
             System.out.print(row + " ");
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < BOARDSIZE; i++) {
                 boolean isShot = false;
                 for (int cell : shotCells) {
-                    if (cell == row * size + i) {
+                    if (cell == row * BOARDSIZE + i) {
                         isShot = true;
                         break;
                     }
