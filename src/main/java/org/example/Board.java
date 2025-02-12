@@ -41,12 +41,12 @@ public class Board {
                 if (isShot) {
                     System.out.print("- ");
                 } else {
-                    System.out.print("  ");
+                    System.out.print("| ");
                 }
             }
             System.out.println();
         }
-
+        // TODO hit
     }
 
     public static void shooting() {
