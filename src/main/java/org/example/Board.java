@@ -90,7 +90,7 @@ public class Board {
 
                 for (int j = 0; j < shipCoordinates.length; j++) {
                     if (shipCoordinates[j] == shot) {
-                        System.out.println("itt már van hajó");
+                        System.out.println("Itt már van hajó.");
                         alreadyUsed = true;
                         break;
                     }
