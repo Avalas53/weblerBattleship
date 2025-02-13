@@ -44,7 +44,7 @@ public class Board {
         }
     }
 
-    public static void shooting(Board board) {
+    public void shooting(Board board) {
         Scanner scanner = new Scanner(System.in);
         boolean alreadyShot;
 
