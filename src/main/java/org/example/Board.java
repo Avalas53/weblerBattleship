@@ -6,9 +6,10 @@ import java.util.Scanner;
 public class Board {
     String id;
     private static final int BOARDSIZE = 10;
+    char[][] board = new char[BOARDSIZE][BOARDSIZE];
     private static int[] shotCells = new int[(BOARDSIZE * BOARDSIZE)];
     private static int shotCellsCounter = 0;
-    private static int[] shipCoordinates = new int[10];
+    private static int[] shipCoordinates = new int[5];
 
     public String getId() {
         return id;
@@ -22,63 +23,53 @@ public class Board {
         this.id = getId();
     }
 
-    public void boardDisplayer (){
-        System.out.print("  ");
+    public void boardDisplayer (Board board){
         for (int i = 0; i < BOARDSIZE; i++) {
-            System.out.print(i + " ");
+            for (int j = 0; j < BOARDSIZE; j++) {
+               board.board[i][j] = '.';
+            }
+        }
+        System.out.print(" ");
+        for (int i = 0; i < BOARDSIZE; i++) {
+            System.out.print(" " + i);
         }
         System.out.println();
-        for (int row = 0; row < BOARDSIZE; row++) {
-            System.out.print(row + " ");
-            for (int i = 0; i < BOARDSIZE; i++) {
-                boolean isShot = false;
-                for (int cell : shotCells) {
-                    if (cell == row * BOARDSIZE + i) {
-                        isShot = true;
-                        break;
-                    }
-                }
-                if (isShot) {
-                    System.out.print("- ");
-                } else {
-                    System.out.print("| ");
-                }
+        for (int i = 0; i < BOARDSIZE; i++) {
+            System.out.print(i + " ");
+            for (int j = 0; j < BOARDSIZE; j++) {
+                System.out.print(board.board[i][j] + " ");
             }
             System.out.println();
         }
-        // TODO hit
     }
 
-    public static void shooting() {
+    public static void shooting(Board board) {
         Scanner scanner = new Scanner(System.in);
         boolean alreadyShot;
 
         do {
             alreadyShot = false;
-            System.out.print("koordináta: ");
+            System.out.print("Célozz! (Add meg a koordinátát sor+oszlop formátumban)!: ");
             int shot = scanner.nextInt();
 
-            for (int i = 0; i < shotCells.length; i++) {
-                if (shotCells[i] == shot) {
-                    System.out.println("ide már lőttél");
+            for (int i = 0; i < board.shotCells.length; i++) {
+                if (board.shotCells[i] == shot) {
+                    System.out.println("Ide már lőttél korábban; válassz új célpontot!");
                     alreadyShot = true;
                     break;
                 }
             }
 
             if (!alreadyShot) {
-                shotCells[shotCellsCounter] = shot;
-                shotCellsCounter++;
+                board.shotCells[board.shotCellsCounter] = shot;
+                board.shotCellsCounter++;
             }
         } while (alreadyShot);
-
-        //TODO talált?
-        //TODO típus- és formátumellenőrzés
     }
 
-    public void locateShip() {
+    public void locateShip(Board board) {
         int shipCoordCounter = 0;
-        for (int i = 0; i < shipCoordinates.length; i++) {
+        for (int i = 0; i < board.shipCoordinates.length; i++) {
 
             Scanner scanner = new Scanner(System.in);
             boolean alreadyUsed;
@@ -88,8 +79,8 @@ public class Board {
                 System.out.print("hajó koordináta: ");
                 int shot = scanner.nextInt();
 
-                for (int j = 0; j < shipCoordinates.length; j++) {
-                    if (shipCoordinates[j] == shot) {
+                for (int j = 0; j < board.shipCoordinates.length; j++) {
+                    if (board.shipCoordinates[j] == shot) {
                         System.out.println("Itt már van hajó.");
                         alreadyUsed = true;
                         break;
@@ -97,14 +88,11 @@ public class Board {
                 }
 
                 if (!alreadyUsed) {
-                    shipCoordinates[shipCoordCounter] = shot;
+                    board.shipCoordinates[shipCoordCounter] = shot;
                     shipCoordCounter++;
                 }
-                System.out.println(Arrays.toString(shipCoordinates));
+                System.out.println(Arrays.toString(board.shipCoordinates));
             } while (alreadyUsed);
         }
-
-        //TODO típus- és formátumellenőrzés
-        //TODO talált?
     }
 }
