@@ -7,9 +7,9 @@ public class Board {
     String id;
     private static final int BOARDSIZE = 10;
     char[][] board = new char[BOARDSIZE][BOARDSIZE];
-    private static int[] shotCells = new int[(BOARDSIZE * BOARDSIZE)];
-    private static int shotCellsCounter = 0;
-    private static int[] shipCoordinates = new int[5];
+    private int[] shotCells = new int[(BOARDSIZE * BOARDSIZE)];
+    private int shotCellsCounter = 0;
+    private int[] shipCoordinates = new int[5];
 
     public String getId() {
         return id;
@@ -20,7 +20,7 @@ public class Board {
     }
 
     public Board (String id) {
-        this.id = getId();
+        this.id = id;
     }
 
     public void boardDisplayer (Board board){
@@ -29,6 +29,7 @@ public class Board {
                board.board[i][j] = '.';
             }
         }
+        System.out.println(getId());
         System.out.print(" ");
         for (int i = 0; i < BOARDSIZE; i++) {
             System.out.print(" " + i);
@@ -76,7 +77,7 @@ public class Board {
 
             do {
                 alreadyUsed = false;
-                System.out.print("hajó koordináta: ");
+                System.out.print(getId() + " hajó koordináta: ");
                 int shot = scanner.nextInt();
 
                 for (int j = 0; j < board.shipCoordinates.length; j++) {

@@ -9,15 +9,13 @@ public class Main {
         boardP1.locateShip(boardP1);
         boardP2.locateShip(boardP2);
 
-        //boardP1.shooting();
-        //boardP1.shooting();
         boardP1.boardDisplayer(boardP2);
         boardP1.shooting(boardP2);
-        boardP1.boardDisplayer(boardP2);
+        //boardP1.boardDisplayer(boardP2);
 
         boardP2.boardDisplayer(boardP1);
         boardP2.shooting(boardP1);
-        boardP2.boardDisplayer(boardP1);
+        //boardP2.boardDisplayer(boardP1);
 
     }
 }
