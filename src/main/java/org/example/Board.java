@@ -92,8 +92,8 @@ public class Board {
                     board.shipCoordinates[shipCoordCounter] = shot;
                     shipCoordCounter++;
                 }
-                System.out.println(Arrays.toString(board.shipCoordinates));
             } while (alreadyUsed);
         }
+        System.out.println("Itt vannak a hajóid: " + Arrays.toString(board.shipCoordinates));
     }
 }
