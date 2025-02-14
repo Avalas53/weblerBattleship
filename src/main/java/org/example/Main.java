@@ -3,21 +3,23 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
 
-        Board boardP1 = new Board("P1");
-        Board boardP2 = new Board("P2");
+        Player player1 = new Player("PlayerOne");
+        Player player2 = new Player("PlayerTwo");
+        Board boardP1 = new Board(player1);
+        Board boardP2 = new Board(player2);
 
-        boardP1.locateShip(boardP1);
-        boardP2.locateShip(boardP2);
+        //locateShip(boardP1);
+        //locateShip(boardP2);
+        Shot.shotPlace(boardP1);
+        Board.boardDisplay(boardP1);
+        //shooting(boardP2);
+        //boardDisplayer(boardP2);
+        //hasSomebodyWin(boardP1, boardP2);
 
-        //boardP1.boardDisplayer(boardP2);
-        //boardP1.shooting(boardP2);
-        //boardP1.boardDisplayer(boardP2);
-        Win.hasSomebodyWin(boardP1, boardP2);
-
-        //boardP2.boardDisplayer(boardP1);
-        //boardP2.shooting(boardP1);
-        //boardP2.boardDisplayer(boardP1);
-        Win.hasSomebodyWin(boardP1, boardP2);
+        //boardDisplayer(boardP1);
+        //shooting(boardP1);
+        //boardDisplayer(boardP1);
+        //hasSomebodyWin(boardP1, boardP2);
 
     }
 }

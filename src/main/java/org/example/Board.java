@@ -4,99 +4,20 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Board {
-    String id;
+    private Player player;
     protected static final int BOARDSIZE = 10;
-    char[][] board = new char[BOARDSIZE][BOARDSIZE];
-    protected int[] shotCells = new int[(BOARDSIZE * BOARDSIZE)];
-    protected int shotCellCounter = 0;
-    protected int[] shipCoordinates = new int[5];
-    protected int[] hits = new int[shipCoordinates.length];
-    protected int hitCounter = 0;
+    protected char[] board = new char[BOARDSIZE];
 
 
-    public String getId() {
-        return id;
+    public Board (Player player) {
+         this.player = player;
+
     }
 
-    public int getSize() {
-        return BOARDSIZE;
-    }
-
-    public Board (String id) {
-        this.id = id;
-    }
-
-    public void boardDisplayer (Board board){
+    protected static void boardDisplay(Board board) {
         for (int i = 0; i < BOARDSIZE; i++) {
-            for (int j = 0; j < BOARDSIZE; j++) {
-               board.board[i][j] = '.';
-            }
-        }
-        System.out.println(getId());
-        System.out.print(" ");
-        for (int i = 0; i < BOARDSIZE; i++) {
-            System.out.print(" " + i);
-        }
-        System.out.println();
-        for (int i = 0; i < BOARDSIZE; i++) {
-            System.out.print(i + " ");
-            for (int j = 0; j < BOARDSIZE; j++) {
-                System.out.print(board.board[i][j] + " ");
-            }
-            System.out.println();
+            System.out.print(board.board[i]);
         }
     }
 
-    /* public void shooting(Board board) {
-        Scanner scanner = new Scanner(System.in);
-        boolean alreadyShot;
-
-        do {
-            alreadyShot = false;
-            System.out.print("Célozz! (Add meg a koordinátát sor+oszlop formátumban)!: ");
-            int shot = scanner.nextInt();
-
-            for (int i = 0; i < board.shotCells.length; i++) {
-                if (board.shotCells[i] == shot) {
-                    System.out.println("Ide már lőttél korábban; válassz új célpontot!");
-                    alreadyShot = true;
-                    break;
-                }
-            }
-
-            if (!alreadyShot) {
-                board.shotCells[board.shotCellsCounter] = shot;
-                board.shotCellsCounter++;
-            }
-        } while (alreadyShot);
-    } */
-
-    public void locateShip(Board board) {
-        int shipCoordCounter = 0;
-        for (int i = 0; i < board.shipCoordinates.length; i++) {
-
-            Scanner scanner = new Scanner(System.in);
-            boolean alreadyUsed;
-
-            do {
-                alreadyUsed = false;
-                System.out.print(getId() + " hajó koordináta: ");
-                int shot = scanner.nextInt();
-
-                for (int j = 0; j < board.shipCoordinates.length; j++) {
-                    if (board.shipCoordinates[j] == shot) {
-                        System.out.println("Itt már van hajó.");
-                        alreadyUsed = true;
-                        break;
-                    }
-                }
-
-                if (!alreadyUsed) {
-                    board.shipCoordinates[shipCoordCounter] = shot;
-                    shipCoordCounter++;
-                }
-            } while (alreadyUsed);
-        }
-        System.out.println("Itt vannak a hajóid: " + Arrays.toString(board.shipCoordinates));
-    }
 }
