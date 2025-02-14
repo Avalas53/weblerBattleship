@@ -5,11 +5,14 @@ import java.util.Scanner;
 
 public class Board {
     String id;
-    private static final int BOARDSIZE = 10;
+    protected static final int BOARDSIZE = 10;
     char[][] board = new char[BOARDSIZE][BOARDSIZE];
-    private int[] shotCells = new int[(BOARDSIZE * BOARDSIZE)];
-    private int shotCellsCounter = 0;
-    private int[] shipCoordinates = new int[5];
+    protected int[] shotCells = new int[(BOARDSIZE * BOARDSIZE)];
+    protected int shotCellCounter = 0;
+    protected int[] shipCoordinates = new int[5];
+    protected int[] hits = new int[shipCoordinates.length];
+    protected int hitCounter = 0;
+
 
     public String getId() {
         return id;
@@ -44,7 +47,7 @@ public class Board {
         }
     }
 
-    public void shooting(Board board) {
+    /* public void shooting(Board board) {
         Scanner scanner = new Scanner(System.in);
         boolean alreadyShot;
 
@@ -66,7 +69,7 @@ public class Board {
                 board.shotCellsCounter++;
             }
         } while (alreadyShot);
-    }
+    } */
 
     public void locateShip(Board board) {
         int shipCoordCounter = 0;
