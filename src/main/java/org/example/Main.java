@@ -12,10 +12,12 @@ public class Main {
         //boardP1.boardDisplayer(boardP2);
         //boardP1.shooting(boardP2);
         //boardP1.boardDisplayer(boardP2);
+        Win.hasSomebodyWin(boardP1, boardP2);
 
         //boardP2.boardDisplayer(boardP1);
         //boardP2.shooting(boardP1);
         //boardP2.boardDisplayer(boardP1);
+        Win.hasSomebodyWin(boardP1, boardP2);
 
     }
 }
