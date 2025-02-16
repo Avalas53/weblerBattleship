@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Board {
     private Player player;
     protected static final int BOARDSIZE = 10;
-    protected char[] board = new char[BOARDSIZE];
+    protected static char[][] board = new char[BOARDSIZE][BOARDSIZE];
 
 
     public Board (Player player) {
@@ -14,9 +14,17 @@ public class Board {
 
     }
 
-    protected static void boardDisplay(Board board) {
-        for (int i = 0; i < BOARDSIZE; i++) {
-            System.out.print(board.board[i]);
+    protected static void boardDisplay(Player player) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                board[i][j] = '.';
+            }
+        }
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
         }
     }
 

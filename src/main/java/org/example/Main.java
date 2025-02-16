@@ -10,8 +10,7 @@ public class Main {
 
         //locateShip(boardP1);
         //locateShip(boardP2);
-        Shot.shotPlace(boardP1);
-        Board.boardDisplay(boardP1);
+        boardP1.boardDisplay(player1);
         //shooting(boardP2);
         //boardDisplayer(boardP2);
         //hasSomebodyWin(boardP1, boardP2);
