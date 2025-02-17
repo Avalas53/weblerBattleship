@@ -20,5 +20,13 @@ public class Board {
         for (int i = 0; i < BOARD_SIZE; i++) {
             System.out.print(" " + i);
         }
+        System.out.println();
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            System.out.print(" " + i);
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
