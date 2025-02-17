@@ -1,9 +1,14 @@
 package org.example;
 
 public class Game {
-    private Boolean hasSomebodyWin = false;
+    private static Boolean hasSomebodyWin = false;
 
-    protected boolean hasSomebodyWin() {
+    protected static boolean hasSomebodyWin() {
         return hasSomebodyWin;
+    }
+
+    protected static boolean shotResult(int shot) {
+        boolean hit = false;
+        return hit;
     }
 }

@@ -11,4 +11,9 @@ public class Player {
     public Player(String id) {
         this.id = id;
     }
+
+    public int takeShot() {
+        int shot = 00;
+        return shot;
+    }
 }

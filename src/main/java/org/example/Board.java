@@ -10,11 +10,15 @@ public class Board {
         this.player = player;
     }
 
-    protected void boardDisplay(Board board) {
+    protected void boardDisplay() {
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
-                board.board[i][j] = '.';
+                board[i][j] = '.';
             }
+        }
+        System.out.print(" ");
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            System.out.print(" " + i);
         }
     }
 }
