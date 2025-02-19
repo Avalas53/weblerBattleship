@@ -19,6 +19,5 @@ public class Main {
         //shooting(boardP1);
         //boardDisplayer(boardP1);
         //hasSomebodyWin(boardP1, boardP2);
-
     }
 }
