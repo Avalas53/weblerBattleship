@@ -3,21 +3,19 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
 
-        Player player1 = new Player("PlayerOne");
-        Player player2 = new Player("PlayerTwo");
-        Board boardP1 = new Board(player1);
-        Board boardP2 = new Board(player2);
+        Player player1 = new Player("Player1");
+        Player player2 = new Player("Player2");
+        Board board1 = new Board(player1);
+        Board board2 = new Board(player2);
 
-        //locateShip(boardP1);
-        //locateShip(boardP2);
-        boardP1.boardDisplay(player1);
-        //shooting(boardP2);
-        //boardDisplayer(boardP2);
-        //hasSomebodyWin(boardP1, boardP2);
+        board1.boardDisplay();
+        board2.boardDisplay();
 
-        //boardDisplayer(boardP1);
-        //shooting(boardP1);
-        //boardDisplayer(boardP1);
-        //hasSomebodyWin(boardP1, boardP2);
+        Game.shotResult(player1.takeShot());
+
+        Game.shotResult(player2.takeShot());
+
+        Game.hasSomebodyWin();
+
     }
 }
