@@ -8,8 +8,8 @@ public class Main {
         Board board1 = new Board(player1);
         Board board2 = new Board(player2);
 
-        board1.boardDisplay();
-        board2.boardDisplay();
+        board1.boardDisplay(); //tesztcélú kiíratás
+        board2.boardDisplay(); //tesztcélú kiíratás
 
         Game.shotResult(player1.takeShot());
 
