@@ -13,7 +13,7 @@ public class Game {
         System.out.println(shot);
     }
 
-    public void hasSomebodyWin() {
+    public static void hasSomebodyWin() {
         //TODO hit és shipCoordinates összehasonlítása
         System.out.println(hasSomebodyWin);
     }

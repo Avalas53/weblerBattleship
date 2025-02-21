@@ -18,6 +18,7 @@ public class Main {
             Game.checkShot(player1.takeShot());
             player1Board.displayBoard();
             Game.checkShot(player2.takeShot());
-        } while (Game.hasSomebodyWin);
+            Game.hasSomebodyWin();
+        } while (!Game.hasSomebodyWin);
     }
 }
