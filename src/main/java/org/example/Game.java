@@ -1,14 +1,20 @@
 package org.example;
 
 public class Game {
-    private static Boolean hasSomebodyWin = false;
 
-    protected static boolean hasSomebodyWin() {
-        return hasSomebodyWin;
+    protected static Boolean hasSomebodyWin = false;
+
+    public static void checkShot(int shot){
+        /* TODO ugyanoda nem
+                nem talált: shotCoordinates
+                talált: hit
+                (süllyedt)
+         */
+        System.out.println(shot);
     }
 
-    protected static boolean shotResult(int shot) {
-        boolean hit = false;
-        return hit;
+    public void hasSomebodyWin() {
+        //TODO hit és shipCoordinates összehasonlítása
+        System.out.println(hasSomebodyWin);
     }
 }
