@@ -29,7 +29,7 @@ public class Player {
         for (int i = 0; i < ownShipCounter; i++) {
             ownShip[i] = scanner.nextInt();
         }
-        System.out.println("Ezek a hajóid koordinátáis:");
+        System.out.println("Ezek a hajóid koordinátái:");
         System.out.println(Arrays.toString(ownShip));
 
     }
