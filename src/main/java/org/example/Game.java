@@ -2,9 +2,9 @@ package org.example;
 
 public class Game {
 
-    protected static Boolean hasSomebodyWin = false;
+    protected Boolean hasSomebodyWin = false;
 
-    public static void checkShot(int shot){
+    public void checkShot(int shot){
         /* TODO ugyanoda nem
                 nem talált: shotCoordinates
                 talált: hit
@@ -13,7 +13,7 @@ public class Game {
         System.out.println(shot);
     }
 
-    public static void hasSomebodyWin() {
+    public void hasSomebodyWin() {
         //TODO hit és shipCoordinates összehasonlítása
         System.out.println(hasSomebodyWin);
     }

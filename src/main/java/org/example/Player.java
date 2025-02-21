@@ -7,12 +7,12 @@ public class Player {
 
     private String id;
     private Board board;
-    private int ownShipCounter = 9;
-    private int[] ownShip = new int[ownShipCounter];
+    protected int ownShipNumber = 9;
+    private int[] ownShip = new int[ownShipNumber];
     protected int shotCoordinateCounter = 0;
     protected int[] shotCoordinates = new int[Board.BOARD_SIZE * Board.BOARD_SIZE];
     protected int hitCounter = 0;
-    protected int[] hit = new int[ownShipCounter];
+    protected int[] hit = new int[ownShipNumber];
 
     public String getId() {
         return id;
@@ -24,14 +24,12 @@ public class Player {
 
     public void placeShip() {
         Scanner scanner = new Scanner(System.in);
-        //TODO ugyanoda nem
-        System.out.println("Adj meg " + ownShipCounter + " koordinátát!");
-        for (int i = 0; i < ownShipCounter; i++) {
+        System.out.println("Adj meg " + ownShipNumber + " koordinátát!");
+        for (int i = 0; i < ownShipNumber; i++) {
             ownShip[i] = scanner.nextInt();
         }
         System.out.println("Ezek a hajóid koordinátái:");
         System.out.println(Arrays.toString(ownShip));
-
     }
 
     public int takeShot() {
