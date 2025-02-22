@@ -1,5 +1,5 @@
 package org.example;
 
-public class Game {
+public class Ship {
 
 }
