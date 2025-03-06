@@ -51,7 +51,74 @@ public class GameHandler {
                     break;
                 }
             }
+
+            boolean hit = opponentPlayer.getBoard().shoot(row, col);
+
+            if (hit) {
+                System.out.println("Talált!");
+                if (opponentPlayer.getBoard().allShipsSunk()) {
+                    System.out.println(currentPlayer.getName() + " nyert!");
+                    break;
+                }
+            } else {
+                System.out.println("Nem talált!");
+            }
+
+            switchPlayers();
         }
 
+        scanner.close();
+    }
+
+    private void placeShips(Player player, Scanner scanner) {
+        placeShip(player, scanner, SHIP_3_SIZE, 1);
+        for (int i = 0; i < NUM_SHIP_2; i++) {
+            placeShip(player, scanner, SHIP_2_SIZE, i + 1);
+        }
+        for (int i = 0; i < NUM_SHIP_1; i++) {
+            placeShip(player, scanner, SHIP_1_SIZE, i + 1);
+        }
+    }
+
+    private void placeShip(Player player, Scanner scanner, int shipSize, int shipNum) {
+        while (true) {
+            System.out.println(player.getName() + " helyezze el a(z) " + shipNum + ". hajóját (" + shipSize + " hosszú):");
+            System.out.print("Adja meg a kezdő sor számát (1-" + BOARD_SIZE + "): ");
+            int startRow = scanner.nextInt() - 1;
+            System.out.print("Adja meg a kezdő oszlop számát (1-" + BOARD_SIZE + "): ");
+            int startCol = scanner.nextInt() - 1;
+            System.out.print("Adja meg az irányt (f/l/j/b): ");
+            char direction = scanner.next().charAt(0);
+
+            if (player.getBoard().placeShip(startRow, startCol, shipSize, direction)) {
+                break;
+            } else {
+                System.out.println("Érvénytelen elhelyezés! Próbálja újra.");
+            }
+        }
+        printBoard(player.getBoard());
+    }
+
+    private void printBoard(Board board) {
+        System.out.print("  ");
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            System.out.print((i + 1) + " ");
+        }
+        System.out.println();
+
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            System.out.print((i + 1) + " ");
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                char cell = board.getCell(i, j);
+                System.out.print(cell + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private void switchPlayers() {
+        Player temp = currentPlayer;
+        currentPlayer = opponentPlayer;
+        opponentPlayer = temp;
     }
 }
