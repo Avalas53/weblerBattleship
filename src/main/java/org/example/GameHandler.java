@@ -82,18 +82,18 @@ public class GameHandler {
 
     private void placeShip(Player player, Scanner scanner, int shipSize, int shipNum) {
         while (true) {
-            System.out.println(player.getName() + " helyezze el a(z) " + shipNum + ". hajóját (" + shipSize + " hosszú):");
-            System.out.print("Adja meg a kezdő sor számát (1-" + BOARD_SIZE + "): ");
+            System.out.println(player.getName() + " helyezd el a(z) " + shipNum + ". hajód (" + shipSize + " hosszú):");
+            System.out.print("Add meg a kezdő sor számát (1-" + BOARD_SIZE + "): ");
             int startRow = scanner.nextInt() - 1;
-            System.out.print("Adja meg a kezdő oszlop számát (1-" + BOARD_SIZE + "): ");
+            System.out.print("Add meg a kezdő oszlop számát (1-" + BOARD_SIZE + "): ");
             int startCol = scanner.nextInt() - 1;
-            System.out.print("Adja meg az irányt (f/l/j/b): ");
+            System.out.print("Add meg az irányt (f/l/j/b): ");
             char direction = scanner.next().charAt(0);
 
             if (player.getBoard().placeShip(startRow, startCol, shipSize, direction)) {
                 break;
             } else {
-                System.out.println("Érvénytelen elhelyezés! Próbálja újra.");
+                System.out.println("Érvénytelen! Próbáld újra.");
             }
         }
         printBoard(player.getBoard());
