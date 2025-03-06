@@ -2,19 +2,19 @@ package org.example;
 
 public class Player {
 
-    private String id;
-    protected Fleet fleet;
-    protected Board board;
+    private String name;
+    private Board board;
 
-    public String getId() {
-        return id;
+    public Player(String name) {
+        this.name = name;
+        this.board = new Board();
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getName() {
+        return name;
     }
 
-    public Player(String id) {
-        this.id = id;
+    public Board getBoard() {
+        return board;
     }
 }
