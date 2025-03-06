@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Board {
@@ -12,6 +13,7 @@ public class Board {
         cells = new ArrayList<>();
         for (int i = 0; i < BOARD_SIZE * BOARD_SIZE; i++) {
             cells.add(new Cell());
+            // System.out.println(getCell(i, i));
         }
     }
 

@@ -13,51 +13,51 @@ public class GameHandler {
 
     private Player player1;
     private Player player2;
-    private Player currentPlayer; //TODO rename
-    private Player opponentPlayer; //TODO rename
+    private Player onePlayer;
+    private Player otherPlayer;
 
     public GameHandler() {
         player1 = new Player("player1");
         player2 = new Player("player2");
-        currentPlayer = player1;
-        opponentPlayer = player2;
+        onePlayer = player1;
+        otherPlayer = player2;
     }
 
     public void handleGame() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("1. játékos hajóinak elhelyezése:");
+        System.out.println("player1 hajói:");
         placeShips(player1, scanner);
 
-        System.out.println("\n2. játékos hajóinak elhelyezése:");
+        System.out.println("player2 hajói:");
         placeShips(player2, scanner);
 
         while (true) {
-            System.out.println(currentPlayer.getName() + " köre:");
-            printBoard(opponentPlayer.getBoard());
+            System.out.println("Te jössz, " + onePlayer.getName());
+            printBoard(otherPlayer.getBoard());
 
             int row, col;
             while (true) {
-                System.out.print("Adja meg a sor számát (1-" + BOARD_SIZE + "): ");
+                System.out.print("Add meg a sor számát (1-" + BOARD_SIZE + "): ");
                 row = scanner.nextInt() - 1;
-                System.out.print("Adja meg az oszlop számát (1-" + BOARD_SIZE + "): ");
+                System.out.print("Add meg az oszlop számát (1-" + BOARD_SIZE + "): ");
                 col = scanner.nextInt() - 1;
 
                 if (row < 0 || row >= BOARD_SIZE || col < 0 || col >= BOARD_SIZE) {
-                    System.out.println("Érvénytelen koordináták! Próbálja újra.");
-                } else if (opponentPlayer.getBoard().isShot(row, col)) {
-                    System.out.println("Ezt a cellát már lőtte! Próbálja újra.");
+                    System.out.println("Nem OK koordináták! Próbáld újra.");
+                } else if (otherPlayer.getBoard().isShot(row, col)) {
+                    System.out.println("Ide már lőttél. Próbáld újra.");
                 } else {
                     break;
                 }
             }
 
-            boolean hit = opponentPlayer.getBoard().shoot(row, col);
+            boolean hit = otherPlayer.getBoard().shoot(row, col);
 
             if (hit) {
                 System.out.println("Talált!");
-                if (opponentPlayer.getBoard().allShipsSunk()) {
-                    System.out.println(currentPlayer.getName() + " nyert!");
+                if (otherPlayer.getBoard().allShipsSunk()) {
+                    System.out.println(onePlayer.getName() + " nyert!");
                     break;
                 }
             } else {
@@ -117,8 +117,8 @@ public class GameHandler {
     }
 
     private void switchPlayers() {
-        Player temp = currentPlayer;
-        currentPlayer = opponentPlayer;
-        opponentPlayer = temp;
+        Player temp = onePlayer;
+        onePlayer = otherPlayer;
+        otherPlayer = temp;
     }
 }
